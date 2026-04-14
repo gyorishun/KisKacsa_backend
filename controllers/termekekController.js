@@ -80,12 +80,21 @@ async function torolTermek(req, res) {
 //termekek valtoztatasa
 async function valtozTermek(req, res) {
     try {
-        const result = await putTermek()
+        const { termek_id, nev, ar } = req.body
+        const kep = req.file ? req.file.filename : null
 
-        return res.status(200).json(result)
+        if (!termek_id || !nev || !ar || !kep) {
+            return res.status(400).json({ error: 'Minden mezőt ki kell tölteni!' })
+        }
+
+        const insertId = await putTermek(termek_id, nev, ar, kep)
+
+        return res.status(201).json({
+            message: 'Sikeres változtatás!',
+            insertId
+        })
     } catch (err) {
-        console.log(err);
-        return res.status(500).json({ error: 'Nem sikerült változtatni a terméket' })
+        return res.status(500).json({ error: 'Szerver oldali hiba', err })
     }
 }
 

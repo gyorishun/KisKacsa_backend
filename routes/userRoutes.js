@@ -21,7 +21,7 @@ router.get('/etelek', getEtel)
 router.get('/italok', getItal)
 router.get('/desszertek', getDesszert)
 router.delete('/termekekdel/:termek_id', torolTermek)
-router.put('/termekekput', valtozTermek)
+router.put('/termekekput', upload.single('kep'), valtozTermek)
 
 
 module.exports = router
