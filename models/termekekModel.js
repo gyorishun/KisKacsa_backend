@@ -46,10 +46,11 @@ async function delTermek(termek_id) {
     return result
 }
 
-async function putTermek(nev,ar,kep, termek_id) {
-    const sql = 'UPDATE termekek SET nev = ?, ar = ?, kep = ? WHERE termekek.termek_id = ?'
-    const [result] = await db.query(sql, [nev,ar,kep, termek_id])
-    return result.insertId || null
+async function putTermek(termek_id, ar) {
+    console.log(termek_id, ar);
+    const sql = 'UPDATE termekek SET ar = ? WHERE termekek.termek_id = ?'
+    const [result] = await db.query(sql, [ar, termek_id])
+    return result.insertId 
 }
 
 module.exports = { addTermek, findByTermekId, findByTermekNev, findEtel, findItal, findDesszert, delTermek, putTermek }
