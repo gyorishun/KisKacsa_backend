@@ -26,6 +26,9 @@ cd KisKacsa_backend
 npm install
 npm start
 
+# Tesztelés
+https://documenter.getpostman.com/view/48734857/2sBXqJJzur
+
 # Frontend
 git clone https://github.com/miklos123/KisKacsa-frontend.git
 cd KisKacsa-frontend
