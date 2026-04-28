@@ -14,7 +14,7 @@ app.use('/users/', userRoutes)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://kiskacsa.netlify.app"],
     credentials: true
 }))
 
